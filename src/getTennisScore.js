@@ -23,6 +23,6 @@ const getTennisScore = (playerOneScore, playerTwoScore) => {
     if (playerTwoScore - playerOneScore === 1 && playerOneScore >=3) {
         return "Advantage Player Two"
     }
-    return 0
+    return `${scoreSyntax[playerOneScore]} - ${scoreSyntax[playerTwoScore]}`
 }
 export default getTennisScore
