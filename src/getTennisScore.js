@@ -6,7 +6,10 @@ const getTennisScore = (playerOneScore, playerTwoScore) => {
         3: 'Forty'
     }
     if (playerOneScore === playerTwoScore) {
-        return `${scoreSyntax[playerOneScore]}-All`
+        if (playerOneScore < 3 ) {
+            return `${scoreSyntax[playerOneScore]}-All`
+        }
+        return 'Deuce'
     }
     if (playerOneScore >= 4 && playerTwoScore <= 2) {
         return "Player One Wins"
