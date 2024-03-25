@@ -27,4 +27,8 @@ describe('Tennis score test suite', () => {
         expect(getTennisScore(4, 3)).toEqual('Advantage Player One')
         expect(getTennisScore(7, 6)).toEqual('Advantage Player One')
     })
+    it('should return "Advantage Player Two" when both reach 3 or more points and the player one is one less', () => {
+        expect(getTennisScore(3, 4)).toEqual('Advantage Player Two')
+        expect(getTennisScore(6, 7)).toEqual('Advantage Player Two')
+    })
 })
