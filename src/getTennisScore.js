@@ -18,6 +18,8 @@ const getTennisScore = (playerOneScore, playerTwoScore) => {
     }
     if (playerTwoScore - playerOneScore >= 2 && playerTwoScore >= 4) {
         return "Player Two Wins"
+    } else if (playerTwoScore - playerOneScore === 1 && playerOneScore >=3) {
+        return "Advantage Player Two"
     }
     return 0
 }
