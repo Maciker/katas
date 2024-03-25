@@ -11,4 +11,14 @@ describe('Tennis score test suite', () => {
     it('should return "Love-All" if the players are tied at 0', () => {
         expect(getTennisScore(0, 0)).toEqual('Love-All')
     })
+    it('should return "Fifteen-All" if the players are tied at 0', () => {
+        expect(getTennisScore(1, 1)).toEqual('Fifteen-All')
+    })
+    it('should return "Thirty-All" if the players are tied at 0', () => {
+        expect(getTennisScore(2, 2)).toEqual('Thirty-All')
+    })
+    it('should return "Deuce" if the players are tied at 3 or more', () => {
+        expect(getTennisScore(3, 3)).toEqual('Deuce')
+        expect(getTennisScore(3, 3)).toEqual('Deuce')
+    })
 })
