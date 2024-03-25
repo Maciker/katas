@@ -6,10 +6,7 @@ const getTennisScore = (playerOneScore, playerTwoScore) => {
         3: 'Forty'
     }
     if (playerOneScore === playerTwoScore) {
-        if (playerOneScore < 3 ) {
-            return `${scoreSyntax[playerOneScore]}-All`
-        }
-        return 'Deuce'
+        return getTiedScore(playerOneScore, scoreSyntax)
     }
     if (playerOneScore - playerTwoScore >= 2 && playerOneScore >= 4) {
         return "Player One Wins"
@@ -26,3 +23,10 @@ const getTennisScore = (playerOneScore, playerTwoScore) => {
     return `${scoreSyntax[playerOneScore]} - ${scoreSyntax[playerTwoScore]}`
 }
 export default getTennisScore
+
+const getTiedScore = (score, scoreSyntax) => {
+        if (score < 3 ) {
+            return `${scoreSyntax[score]}-All`
+        }
+        return 'Deuce'
+}
