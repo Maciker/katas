@@ -1,1 +1,3 @@
-/node*
+.idea
+
+node_modules
