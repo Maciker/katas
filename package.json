@@ -1,0 +1,19 @@
+{
+  "name": "katas",
+  "version": "1.0.0",
+  "description": "Katas Boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maciker/katas.git"
+  },
+  "author": "Iker Macaya Faber",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maciker/katas/issues"
+  },
+  "homepage": "https://github.com/Maciker/katas#readme"
+}
