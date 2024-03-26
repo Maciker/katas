@@ -1,19 +1,19 @@
 'use strict';
 
 function getScore(m_score1, m_score2) {
+    const scoreSyntax = {
+        0: 'Love',
+        1: 'Fifteen',
+        2: 'Thirty',
+        3: 'Forty'
+    }
     let score = "";
     let tempScore = 0;
     if (m_score1 === m_score2) {
-        switch (m_score1) {
-            case 0:
-                return "Love-All";
-            case 1:
-                return "Fifteen-All";
-            case 2:
-                return "Thirty-All";
-            default:
-                return "Deuce";
+        if (m_score1 >= 3) {
+            return 'Deuce'
         }
+        return `${scoreSyntax[m_score1]}-All`
     }
     if (m_score1 >= 4 || m_score2 >= 4) {
         let minusResult = m_score1 - m_score2;
