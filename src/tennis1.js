@@ -7,8 +7,6 @@ function getScore(m_score1, m_score2) {
         2: 'Thirty',
         3: 'Forty'
     }
-    let score = "";
-    let tempScore = 0;
     if (m_score1 === m_score2) {
         if (m_score1 >= 3) {
             return 'Deuce'
