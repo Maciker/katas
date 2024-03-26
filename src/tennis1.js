@@ -15,8 +15,8 @@ function getScore(m_score1, m_score2) {
         }
         return `${scoreSyntax[m_score1]}-All`
     }
+    const minusResult = m_score1 - m_score2;
     if (m_score1 >= 4 || m_score2 >= 4) {
-        let minusResult = m_score1 - m_score2;
         if (minusResult === 1) {
             return "Advantage player1";
         }
