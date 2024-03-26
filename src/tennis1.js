@@ -6,17 +6,13 @@ function getScore(m_score1, m_score2) {
     if (m_score1 === m_score2) {
         switch (m_score1) {
             case 0:
-                score = "Love-All";
-                break;
+                return "Love-All";
             case 1:
-                score = "Fifteen-All";
-                break;
+                return "Fifteen-All";
             case 2:
-                score = "Thirty-All";
-                break;
+                return "Thirty-All";
             default:
-                score = "Deuce";
-                break;
+                return "Deuce";
         }
     } else if (m_score1 >= 4 || m_score2 >= 4) {
         let minusResult = m_score1 - m_score2;
