@@ -31,4 +31,9 @@ describe('Tennis score test suite', () => {
         expect(getTennisScore(3, 4)).toEqual('Advantage Player Two')
         expect(getTennisScore(6, 7)).toEqual('Advantage Player Two')
     })
+    it('should return the scoring of both players', () => {
+        expect(getTennisScore(1, 0)).toEqual('Fifteen - Love')
+        expect(getTennisScore(1, 3)).toEqual('Fifteen - Forty')
+        expect(getTennisScore(2, 1)).toEqual('Thirty - Fifteen')
+    })
 })
