@@ -1,10 +1,6 @@
 const getTennisScore = (playerOneScore, playerTwoScore) => {
-    const scoreSyntax = {
-        0: 'Love',
-        1: 'Fifteen',
-        2: 'Thirty',
-        3: 'Forty'
-    }
+    const scoreSyntax = ['Love', 'Fifteen', 'Thirty', 'Forty']
+
     if (playerOneScore === playerTwoScore) {
         return getTiedScore(playerOneScore, scoreSyntax)
     }
