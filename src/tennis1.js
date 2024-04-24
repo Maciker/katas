@@ -1,12 +1,8 @@
 'use strict';
 
 function getScore(m_score1, m_score2) {
-    const scoreSyntax = {
-        0: 'Love',
-        1: 'Fifteen',
-        2: 'Thirty',
-        3: 'Forty'
-    }
+    const scoreSyntax = ['Love', 'Fifteen', 'Thirty', 'Forty']
+
     if (m_score1 === m_score2) {
         if (m_score1 >= 3) {
             return 'Deuce'
