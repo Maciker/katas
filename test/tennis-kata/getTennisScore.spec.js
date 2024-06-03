@@ -1,4 +1,4 @@
-import getTennisScore from "../src/getTennisScore";
+import getTennisScore from "../../src/tennis-kata/getTennisScore";
 
 describe('Tennis score test suite', () => {
     it('should return player one Wins when reach 4 points with an advantage of 2', () => {

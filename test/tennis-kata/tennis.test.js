@@ -1,7 +1,7 @@
 'use strict';
 
 var each = require("jest-each").default;
-var getScore1 = require('../src/tennis1');
+var getScore1 = require('../../src/tennis-kata/tennis1');
 
 var allScores = [
     [0, 0, "Love-All"],
