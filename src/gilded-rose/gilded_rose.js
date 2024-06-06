@@ -14,13 +14,17 @@ const itemsAtSale = {
     dexterityVest: "+5 Dexterity Vest"
 }
 
+const hasToDecreaseQualityItem = (item) => {
+    return item.name !== itemsAtSale.agedBrie && item.name !== itemsAtSale.backstageConcert
+}
+
 class Shop {
     constructor(items=[]){
         this.items = items;
     }
     updateQuality() {
         for (let i = 0; i < this.items.length; i++) {
-            if (this.items[i].name != itemsAtSale.agedBrie && this.items[i].name != itemsAtSale.backstageConcert) {
+            if (hasToDecreaseQualityItem(this.items[i])) {
                 if (this.items[i].quality > 0) {
                     if (this.items[i].name != itemsAtSale.sulfurasHandofRagnaros) {
                         this.items[i].quality = this.items[i].quality - 1;
