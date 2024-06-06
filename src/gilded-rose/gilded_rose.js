@@ -25,25 +25,27 @@ const decreaseSellInDay = (item) => {
 }
 
 const decreaseQuality = (item) => {
+    const decreaseValue = item.sellIn >= 0 ? 1 : 2
     if (item.name !== itemsAtSale.sulfurasHandofRagnaros) {
-        return item.quality - 1 > 0 ? item.quality -1 : 0;
+        return item.quality - decreaseValue > 0 ? item.quality - decreaseValue : 0;
     }
     return item.quality
 }
 
 const increaseQuality = (item) => {
+    const increaseMultiplier = item.sellIn >= 0 ? 1: 2
     if (item.name === itemsAtSale.backstageConcert) {
         if (item.sellIn < 0) {
             return 0
         }
         if (item.sellIn < 6) {
-            return item.quality + 3 <= 50 ? item.quality + 3 : 50;
+            return item.quality + (3 * increaseMultiplier) <= 50 ? item.quality + (3 * increaseMultiplier) : 50;
         }
         if (item.sellIn < 11) {
-            return item.quality + 2 <= 50 ? item.quality + 2 : 50;
+            return item.quality + (2 * increaseMultiplier) <= 50 ? item.quality + (2 * increaseMultiplier) : 50;
         }
     }
-    return item.quality + 1 <= 50 ? item.quality + 1 : 50;
+    return item.quality + (1 * increaseMultiplier) <= 50 ? item.quality + (1 * increaseMultiplier) : 50;
 }
 
 class Shop {
@@ -52,18 +54,11 @@ class Shop {
     }
     updateQuality() {
         for (let i = 0; i < this.items.length; i++) {
+            this.items[i].sellIn = decreaseSellInDay(this.items[i])
             if (hasToDecreaseQualityItem(this.items[i])) {
                 this.items[i].quality = decreaseQuality(this.items[i])
             } else {
                 this.items[i].quality = increaseQuality(this.items[i])
-            }
-            this.items[i].sellIn = decreaseSellInDay(this.items[i])
-            if (this.items[i].sellIn < 0) {
-                if (hasToDecreaseQualityItem(this.items[i])) {
-                    this.items[i].quality = decreaseQuality(this.items[i])
-                } else {
-                    this.items[i].quality = increaseQuality(this.items[i])
-                }
             }
         }
 
