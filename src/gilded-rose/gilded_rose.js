@@ -19,13 +19,10 @@ const hasToDecreaseQualityItem = (item) => {
 }
 
 const decreaseQuality = (item) => {
-    if (item.quality > 0) {
-        if (item.name !== itemsAtSale.sulfurasHandofRagnaros) {
-            return item.quality - 1;
-        }
-        return item.quality
+    if (item.name !== itemsAtSale.sulfurasHandofRagnaros) {
+        return item.quality - 1 > 0 ? item.quality -1 : 0;
     }
-    return 0
+    return item.quality
 }
 
 class Shop {
