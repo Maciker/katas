@@ -27,6 +27,18 @@ describe("Gilded Rose - Items rules", function() {
         const items = itemBuilder(itemsAtSale.backstageConcert, 7, 2).updateQuality()
         expect(items[0].quality).toBeGreaterThan(2)
     });
+    it("should increase quality in backstage concert by 2 when there are 5 - 10 days till sell in", function() {
+        const items = itemBuilder(itemsAtSale.backstageConcert, 7, 2).updateQuality()
+        expect(items[0].quality).toBe(4)
+    });
+    it("should increase quality in backstage concert by 3 when there are less than 5 days till sell in", function() {
+        const items = itemBuilder(itemsAtSale.backstageConcert, 5, 2).updateQuality()
+        expect(items[0].quality).toBe(5)
+    });
+    it("should drop quality in backstage concert to 0 when the sell in day pass", function() {
+        const items = itemBuilder(itemsAtSale.backstageConcert, 0, 27).updateQuality()
+        expect(items[0].quality).toBe(0)
+    });
 });
 
 describe("Gilded Rose - Main Rules", function(){
