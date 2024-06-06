@@ -7,4 +7,4 @@ describe("Gilded Rose", function() {
         expect(items[0].name).toBe("Sulfuras, Hand of Ragnaros");
         expect(items[0].quality).toBe(80);
     });
-});
+});Item
