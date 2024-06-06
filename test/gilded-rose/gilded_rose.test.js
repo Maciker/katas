@@ -1,4 +1,5 @@
 const {Shop, Item} = require("../../src/gilded-rose/gilded_rose");
+const {expectedError} = require("@babel/core/lib/errors/rewrite-stack-trace");
 
 const itemsAtSale = {
     sulfurasHandofRagnaros: "Sulfuras, Hand of Ragnaros",
@@ -19,3 +20,10 @@ describe("Gilded Rose - Items rules", function() {
         expect(items[0].quality).toBe(80);
     });
 });
+
+describe("Gilded Rose - Main Rules", function(){
+    it("item quality never could be under 0", function() {
+        const items = itemBuilder("Great Axe", 5, 0).updateQuality()
+        expect(items[0].quality).toBe(0);
+    })
+})
