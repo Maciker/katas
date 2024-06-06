@@ -3,7 +3,9 @@ const {Shop, Item} = require("../../src/gilded-rose/gilded_rose");
 const itemsAtSale = {
     sulfurasHandofRagnaros: "Sulfuras, Hand of Ragnaros",
     agedBrie: "Aged Brie",
-    backstageConcert: "Backstage passes to a TAFKAL80ETC concert"
+    backstageConcert: "Backstage passes to a TAFKAL80ETC concert",
+    conjuredManaCake: "Conjured Mana Cake",
+    dexterityVest: "+5 Dexterity Vest"
 }
 
 const itemBuilder = (itemName = '' ,sellIn=1, quality=80) => {
