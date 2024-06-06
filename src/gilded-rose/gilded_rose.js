@@ -18,6 +18,16 @@ const hasToDecreaseQualityItem = (item) => {
     return item.name !== itemsAtSale.agedBrie && item.name !== itemsAtSale.backstageConcert
 }
 
+const decreaseQuality = (item) => {
+    if (item.quality > 0) {
+        if (item.name !== itemsAtSale.sulfurasHandofRagnaros) {
+            return item.quality - 1;
+        }
+        return item.quality
+    }
+    return 0
+}
+
 class Shop {
     constructor(items=[]){
         this.items = items;
@@ -25,11 +35,7 @@ class Shop {
     updateQuality() {
         for (let i = 0; i < this.items.length; i++) {
             if (hasToDecreaseQualityItem(this.items[i])) {
-                if (this.items[i].quality > 0) {
-                    if (this.items[i].name != itemsAtSale.sulfurasHandofRagnaros) {
-                        this.items[i].quality = this.items[i].quality - 1;
-                    }
-                }
+                this.items[i].quality = decreaseQuality(this.items[i])
             } else {
                 if (this.items[i].quality < 50) {
                     this.items[i].quality = this.items[i].quality + 1;
