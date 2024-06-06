@@ -1,6 +1,3 @@
-# katas
-Software Development Katas
+# Katas
 
 Each branch contains a kata. 
-
-Gilded Rose
