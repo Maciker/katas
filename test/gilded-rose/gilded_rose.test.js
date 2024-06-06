@@ -19,6 +19,7 @@ describe("Gilded Rose - Items rules", function() {
         expect(items[0].name).toBe("Sulfuras, Hand of Ragnaros");
         expect(items[0].quality).toBe(80);
     });
+
 });
 
 describe("Gilded Rose - Main Rules", function(){
@@ -29,5 +30,9 @@ describe("Gilded Rose - Main Rules", function(){
     it("should mantein item quality under or equal to 50 (except Sulfuras, Hand of Ragaros)", function () {
         const items = itemBuilder(itemsAtSale.agedBrie, 3, 50).updateQuality()
         expect(items[0].quality).toBe(50)
+    });
+    it("should degrade quality twice as fast when the sell data has passed", function() {
+        const items = itemBuilder(itemsAtSale.dexterityVest, 0, 10).updateQuality();
+        expect(items[0].quality).toBe(8)
     })
 })
