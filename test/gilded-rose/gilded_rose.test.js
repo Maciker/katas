@@ -19,7 +19,10 @@ describe("Gilded Rose - Items rules", function() {
         expect(items[0].name).toBe("Sulfuras, Hand of Ragnaros");
         expect(items[0].quality).toBe(80);
     });
-
+    it("should increase qualitty in Aged Brie", function() {
+        const items = itemBuilder(itemsAtSale.agedBrie, 0, 2).updateQuality()
+        expect(items[0].quality).toBe(4)
+    })
 });
 
 describe("Gilded Rose - Main Rules", function(){
