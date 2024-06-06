@@ -22,7 +22,11 @@ describe("Gilded Rose - Items rules", function() {
     it("should increase qualitty in Aged Brie", function() {
         const items = itemBuilder(itemsAtSale.agedBrie, 0, 2).updateQuality()
         expect(items[0].quality).toBe(4)
-    })
+    });
+    it("should increase qualitty in backstage copncerrt", function() {
+        const items = itemBuilder(itemsAtSale.backstageConcert, 7, 2).updateQuality()
+        expect(items[0].quality).toBeGreaterThan(2)
+    });
 });
 
 describe("Gilded Rose - Main Rules", function(){
