@@ -25,5 +25,9 @@ describe("Gilded Rose - Main Rules", function(){
     it("item quality never could be under 0", function() {
         const items = itemBuilder("Great Axe", 5, 0).updateQuality()
         expect(items[0].quality).toBe(0);
+    });
+    it("should mantein item quality under or equal to 50 (except Sulfuras, Hand of Ragaros)", function () {
+        const items = itemBuilder(itemsAtSale.agedBrie, 3, 50).updateQuality()
+        expect(items[0].quality).toBe(50)
     })
 })
