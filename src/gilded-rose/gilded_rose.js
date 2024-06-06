@@ -26,23 +26,15 @@ const decreaseQuality = (item) => {
 }
 
 const increaseQuality = (item) => {
-    let increaseValue = 0;
-    if (item.quality < 50) {
-        increaseValue += 1
-        if (item.name === itemsAtSale.backstageConcert) {
-            if (item.sellIn < 11) {
-                if (item.quality < 50) {
-                    increaseValue += 1;
-                }
-            }
-            if (item.sellIn < 6) {
-                if (item.quality < 50) {
-                    increaseValue += 1;
-                }
-            }
+    if (item.name === itemsAtSale.backstageConcert) {
+        if (item.sellIn < 6) {
+            return item.quality + 3 <= 50 ? item.quality + 3 : 50;
+        }
+        if (item.sellIn < 11) {
+            return item.quality + 2 <= 50 ? item.quality + 2 : 50;
         }
     }
-    return increaseValue;
+    return item.quality + 1 <= 50 ? item.quality + 1 : 50;
 }
 
 class Shop {
@@ -54,7 +46,7 @@ class Shop {
             if (hasToDecreaseQualityItem(this.items[i])) {
                 this.items[i].quality = decreaseQuality(this.items[i])
             } else {
-                this.items[i].quality += increaseQuality(this.items[i])
+                this.items[i].quality = increaseQuality(this.items[i])
             }
             if (this.items[i].name != itemsAtSale.sulfurasHandofRagnaros) {
                 this.items[i].sellIn = this.items[i].sellIn - 1;
