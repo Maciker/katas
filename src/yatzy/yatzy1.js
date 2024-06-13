@@ -1,12 +1,12 @@
 const Yatzy = function(d1, d2, d3, d4, d5) {
-    this.dice = [d1, d2, d3, d4, d5];
+    const dice = [d1, d2, d3, d4, d5];
 
     this.fours = function()
     {
         let sum;
         sum = 0;
         for (let i = 0; i != 5; i++) {
-            if (this.dice[i] == 4) {
+            if (dice[i] == 4) {
                 sum += 4;
             }
         }
@@ -16,8 +16,8 @@ const Yatzy = function(d1, d2, d3, d4, d5) {
     this.fives = function()
     {
         let s = 0
-        for (let i = 0; i < this.dice.length; i++)
-            if (this.dice[i] == 5)
+        for (let i = 0; i < dice.length; i++)
+            if (dice[i] == 5)
                 s = s + 5;
         return s;
     }
@@ -25,8 +25,8 @@ const Yatzy = function(d1, d2, d3, d4, d5) {
     this.sixes = function()
     {
         let sum = 0;
-        for (let i = 0; i < this.dice.length; i++)
-            if (this.dice[i] == 6)
+        for (let i = 0; i < dice.length; i++)
+            if (dice[i] == 6)
                 sum = sum + 6;
         return sum;
     }
