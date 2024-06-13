@@ -31,8 +31,7 @@ const Yatzy = function(d1, d2, d3, d4, d5) {
             .reduce((totalSum, currentValue) => totalSum + currentValue, 0)
     }
 
-    this.score_pair = function(d1, d2, d3, d4, d5)
-    {
+    this.score_pair = function(d1, d2, d3, d4, d5) {
         let counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         counts[d1-1]++;
         counts[d2-1]++;
@@ -61,8 +60,7 @@ Yatzy.yatzy = function() {
     return 0;
 }
 
-Yatzy.two_pair = function(d1, d2, d3, d4, d5)
-{
+Yatzy.two_pair = function(d1, d2, d3, d4, d5) {
     let counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     counts[d1-1]++;
     counts[d2-1]++
@@ -82,8 +80,7 @@ Yatzy.two_pair = function(d1, d2, d3, d4, d5)
         return 0;
 }
 
-Yatzy.four_of_a_kind = function(d1, d2, d3, d4, d5)
-{
+Yatzy.four_of_a_kind = function(d1, d2, d3, d4, d5) {
     let tallies = [0, 0, 0, 0, 0, 0, 0, 0]
     tallies[d1-1]++;
     tallies[d2-1]++;
@@ -96,8 +93,7 @@ Yatzy.four_of_a_kind = function(d1, d2, d3, d4, d5)
     return 0;
 }
 
-Yatzy.three_of_a_kind = function(d1, d2, d3, d4, d5)
-{
+Yatzy.three_of_a_kind = function(d1, d2, d3, d4, d5) {
     let t = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     t[d1-1]++;
     t[d2-1]++;
@@ -110,8 +106,7 @@ Yatzy.three_of_a_kind = function(d1, d2, d3, d4, d5)
     return 0;
 }
 
-Yatzy.smallStraight = function(d1, d2, d3, d4, d5)
-{
+Yatzy.smallStraight = function(d1, d2, d3, d4, d5) {
     let tallies = [0, 0, 0, 0, 0, 0, 0]
     tallies[d1-1] += 1;
     tallies[d2-1] += 1;
@@ -127,8 +122,7 @@ Yatzy.smallStraight = function(d1, d2, d3, d4, d5)
     return 0;
 }
 
-Yatzy.largeStraight = function(d1, d2, d3, d4, d5)
-{
+Yatzy.largeStraight = function(d1, d2, d3, d4, d5) {
     let tallies = [0, 0, 0, 0,0,0,0,0];
     tallies[d1-1] += 1;
     tallies[d2-1] += 1;
@@ -144,8 +138,7 @@ Yatzy.largeStraight = function(d1, d2, d3, d4, d5)
     return 0;
 }
 
-Yatzy.fullHouse = function(d1, d2, d3, d4, d5)
-{
+Yatzy.fullHouse = function(d1, d2, d3, d4, d5) {
     let  _2 = false;
     let i;
     let _2_at = 0;
