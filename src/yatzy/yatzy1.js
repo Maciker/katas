@@ -3,32 +3,17 @@ const Yatzy = function(d1, d2, d3, d4, d5) {
 
     this.fours = function()
     {
-        let sum;
-        sum = 0;
-        for (let i = 0; i != 5; i++) {
-            if (dice[i] == 4) {
-                sum += 4;
-            }
-        }
-        return sum;
+        return dice.filter(diceRoll => diceRoll === 4).reduce((totalSum, currentValue) => totalSum + currentValue, 0)
     }
 
     this.fives = function()
     {
-        let s = 0
-        for (let i = 0; i < dice.length; i++)
-            if (dice[i] == 5)
-                s = s + 5;
-        return s;
+        return dice.filter(diceRoll => diceRoll === 5).reduce((totalSum, currentValue) => totalSum + currentValue, 0)
     }
 
     this.sixes = function()
     {
-        let sum = 0;
-        for (let i = 0; i < dice.length; i++)
-            if (dice[i] == 6)
-                sum = sum + 6;
-        return sum;
+        return dice.filter(diceRoll => diceRoll === 6).reduce((totalSum, currentValue) => totalSum + currentValue, 0)
     }
 
     this.score_pair = function(d1, d2, d3, d4, d5)
