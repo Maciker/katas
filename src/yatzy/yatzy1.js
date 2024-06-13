@@ -1,19 +1,34 @@
 const Yatzy = function(d1, d2, d3, d4, d5) {
     const dice = [d1, d2, d3, d4, d5];
 
-    this.fours = function()
-    {
-        return dice.filter(diceRoll => diceRoll === 4).reduce((totalSum, currentValue) => totalSum + currentValue, 0)
+    this.ones = function() {
+        return dice.filter(diceRoll => diceRoll === 1)
+            .reduce((totalSum, currentValue) => totalSum + currentValue, 0)
     }
 
-    this.fives = function()
-    {
-        return dice.filter(diceRoll => diceRoll === 5).reduce((totalSum, currentValue) => totalSum + currentValue, 0)
+    this.twos = function() {
+        return dice.filter(diceRoll => diceRoll === 2)
+            .reduce((totalSum, currentValue) => totalSum + currentValue, 0)
     }
 
-    this.sixes = function()
-    {
-        return dice.filter(diceRoll => diceRoll === 6).reduce((totalSum, currentValue) => totalSum + currentValue, 0)
+    this.threes = function(){
+        return dice.filter(diceRoll => diceRoll === 3)
+            .reduce((totalSum, currentValue) => totalSum + currentValue, 0)
+    }
+
+    this.fours = function() {
+        return dice.filter(diceRoll => diceRoll === 4)
+            .reduce((totalSum, currentValue) => totalSum + currentValue, 0)
+    }
+
+    this.fives = function() {
+        return dice.filter(diceRoll => diceRoll === 5)
+            .reduce((totalSum, currentValue) => totalSum + currentValue, 0)
+    }
+
+    this.sixes = function(){
+        return dice.filter(diceRoll => diceRoll === 6)
+            .reduce((totalSum, currentValue) => totalSum + currentValue, 0)
     }
 
     this.score_pair = function(d1, d2, d3, d4, d5)
@@ -44,38 +59,6 @@ Yatzy.yatzy = function() {
         if (counts[i] == 5)
             return 50;
     return 0;
-}
-
-Yatzy.ones = function(d1, d2, d3, d4, d5) {
-    let sum = 0;
-    if (d1 == 1) sum++;
-    if (d2 == 1) sum++;
-    if (d3 == 1) sum++;
-    if (d4 == 1) sum++;
-    if (d5 == 1)
-        sum++;
-
-    return sum;
-}
-
-Yatzy.twos = function(d1, d2, d3, d4, d5) {
-    let sum = 0;
-    if (d1 == 2) sum += 2;
-    if (d2 == 2) sum += 2;
-    if (d3 == 2) sum += 2;
-    if (d4 == 2) sum += 2;
-    if (d5 == 2) sum += 2;
-    return sum;
-}
-
-Yatzy.threes = function(d1, d2, d3, d4, d5) {
-    let sum = 0;
-    if (d1 == 3) sum += 3;
-    if (d2 == 3) sum += 3;
-    if (d3 == 3) sum += 3;
-    if (d4 == 3) sum += 3;
-    if (d5 == 3) sum += 3;
-    return sum;
 }
 
 Yatzy.two_pair = function(d1, d2, d3, d4, d5)
