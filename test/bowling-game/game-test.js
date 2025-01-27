@@ -34,6 +34,11 @@ describe('Bowling Game', () => {
         assert.strictEqual(game.score(), 24);
     });
 
+    it('should score 300 for a perfect game', () => {
+        rollMany(12, 10);  // 12 strikes
+        assert.strictEqual(game.score(), 300);
+    });
+
     function rollMany(n, pins) {
         for (let i = 0; i < n; i++) {
             game.roll(pins);
