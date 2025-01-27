@@ -4,9 +4,9 @@
   "description": "Katas Boilerplate",
   "scripts": {
     "lint": "eslint src/**/*.js",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:mocha": "mocha"
+    "test": "mocha test/**/*.js",
+    "test:watch": "mocha test/**/*.js --watch",
+    "test:mocha": "mocha test/**/*.js"
   },
   "directories": {
     "src": "src",
