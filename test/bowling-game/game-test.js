@@ -18,6 +18,14 @@ describe('Bowling Game', () => {
         assert.strictEqual(game.score(), 20);
     });
 
+    it('should score 16 for a spare followed by a 3', () => {
+        game.roll(5);  // first roll of frame
+        game.roll(5);  // spare
+        game.roll(3);  // next roll (counted as bonus)
+        rollMany(17, 0); // fill the rest with zeros
+        assert.strictEqual(game.score(), 16);
+    });
+
     function rollMany(n, pins) {
         for (let i = 0; i < n; i++) {
             game.roll(pins);
