@@ -10,10 +10,22 @@ class Game {
 
     score() {
         let score = 0;
-        for (let i = 0; i < this.rolls.length; i++) {
-            score += this.rolls[i];
+        let frameIndex = 0;
+        
+        for (let frame = 0; frame < 10; frame++) {
+            if (this.isSpare(frameIndex)) {
+                score += 10 + this.rolls[frameIndex + 2];
+                frameIndex += 2;
+            } else {
+                score += this.rolls[frameIndex] + this.rolls[frameIndex + 1];
+                frameIndex += 2;
+            }
         }
         return score;
+    }
+
+    isSpare(frameIndex) {
+        return this.rolls[frameIndex] + this.rolls[frameIndex + 1] === 10;
     }
 }
 
