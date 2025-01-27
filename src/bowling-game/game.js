@@ -23,6 +23,18 @@ class Game {
         if (this.#currentRoll >= Game.MAX_ROLLS) {
             throw new Error('Cannot roll more than max rolls in a game');
         }
+        
+        const frameIndex = Math.floor(this.#currentRoll / 2);
+        const isSecondRoll = this.#currentRoll % 2 === 1;
+        const isNotLastFrame = frameIndex < 9;
+        
+        if (isSecondRoll && isNotLastFrame) {
+            const firstRoll = this.#rolls[this.#currentRoll - 1];
+            if (firstRoll !== Game.MAX_PINS && firstRoll + pins > Game.MAX_PINS) {
+                throw new Error(`Invalid roll: ${pins}. Total pins in frame cannot exceed ${Game.MAX_PINS}`);
+            }
+        }
+        
         this.#rolls[this.#currentRoll++] = pins;
     }
 

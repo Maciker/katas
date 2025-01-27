@@ -80,6 +80,25 @@ describe('Bowling Game', () => {
             }
             assert.fail('Should have thrown error for too many rolls');
         });
+
+        it('should throw error when frame total exceeds 10 pins', () => {
+            game.roll(5);  // First roll of frame
+            assert.throws(() => game.roll(6), /Total pins in frame cannot exceed 10/);
+        });
+
+        it('should allow more than 10 pins in last frame with spare', () => {
+            rollMany(18, 0);  // 9 frames
+            game.roll(5);     // first roll of last frame
+            game.roll(5);     // spare
+            assert.doesNotThrow(() => game.roll(10));  // bonus roll
+        });
+
+        it('should allow more than 10 pins in last frame with strike', () => {
+            rollMany(18, 0);  // 9 frames
+            game.roll(10);    // strike in last frame
+            game.roll(10);    // bonus roll
+            assert.doesNotThrow(() => game.roll(10));  // bonus roll
+        });
     });
 
     function rollMany(n, pins) {
