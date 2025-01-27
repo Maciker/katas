@@ -47,6 +47,14 @@ describe('Bowling Game', () => {
         assert.strictEqual(game.score(), 17);
     });
 
+    it('should handle strike in last frame', () => {
+        rollMany(18, 0);    // 9 frames of zeros
+        game.roll(10);      // last frame strike
+        game.roll(7);       // bonus roll
+        game.roll(2);       // bonus roll
+        assert.strictEqual(game.score(), 19);
+    });
+
     function rollMany(n, pins) {
         for (let i = 0; i < n; i++) {
             game.roll(pins);
