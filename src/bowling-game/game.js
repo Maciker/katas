@@ -9,48 +9,48 @@ class Game {
     }
 
     score() {
-        let score = 0;
-        let frameIndex = 0;
+        let gameScore = 0;
+        let currentFrame = 0;
         
-        for (let frame = 0; frame < 10; frame++) {
-            score += this.scoreFrame(frameIndex);
-            frameIndex += this.nextFrameIndex(frameIndex);
+        for (let frameNumber = 0; frameNumber < 10; frameNumber++) {
+            gameScore += this.scoreFrame(currentFrame);
+            currentFrame += this.getFrameSize(currentFrame);
         }
-        return score;
+        return gameScore;
     }
 
-    scoreFrame(frameIndex) {
-        if (this.isStrike(frameIndex)) {
-            return 10 + this.strikeBonus(frameIndex);
+    scoreFrame(frameStart) {
+        if (this.isStrike(frameStart)) {
+            return 10 + this.strikeBonus(frameStart);
         }
-        if (this.isSpare(frameIndex)) {
-            return 10 + this.spareBonus(frameIndex);
+        if (this.isSpare(frameStart)) {
+            return 10 + this.spareBonus(frameStart);
         }
-        return this.sumOfBallsInFrame(frameIndex);
+        return this.sumOfBallsInFrame(frameStart);
     }
 
-    nextFrameIndex(frameIndex) {
-        return this.isStrike(frameIndex) ? 1 : 2;
+    getFrameSize(frameStart) {
+        return this.isStrike(frameStart) ? 1 : 2;
     }
 
-    isStrike(frameIndex) {
-        return this.rolls[frameIndex] === 10;
+    isStrike(frameStart) {
+        return this.rolls[frameStart] === 10;
     }
 
-    isSpare(frameIndex) {
-        return this.rolls[frameIndex] + this.rolls[frameIndex + 1] === 10;
+    isSpare(frameStart) {
+        return this.rolls[frameStart] + this.rolls[frameStart + 1] === 10;
     }
 
-    strikeBonus(frameIndex) {
-        return this.rolls[frameIndex + 1] + this.rolls[frameIndex + 2];
+    strikeBonus(frameStart) {
+        return this.rolls[frameStart + 1] + this.rolls[frameStart + 2];
     }
 
-    spareBonus(frameIndex) {
-        return this.rolls[frameIndex + 2];
+    spareBonus(frameStart) {
+        return this.rolls[frameStart + 2];
     }
 
-    sumOfBallsInFrame(frameIndex) {
-        return this.rolls[frameIndex] + this.rolls[frameIndex + 1];
+    sumOfBallsInFrame(frameStart) {
+        return this.rolls[frameStart] + this.rolls[frameStart + 1];
     }
 }
 
