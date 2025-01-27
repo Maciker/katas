@@ -55,6 +55,33 @@ describe('Bowling Game', () => {
         assert.strictEqual(game.score(), 19);
     });
 
+    describe('Input validation', () => {
+        it('should throw error for negative pins', () => {
+            assert.throws(() => game.roll(-1), Error);
+        });
+
+        it('should throw error for pins > 10', () => {
+            assert.throws(() => game.roll(11), Error);
+        });
+
+        it('should throw error for non-integer pins', () => {
+            assert.throws(() => game.roll(5.5), Error);
+        });
+
+        it('should throw error for too many rolls', () => {
+            // Roll more than max allowed rolls
+            for (let i = 0; i < 22; i++) {
+                try {
+                    game.roll(0);
+                } catch (e) {
+                    assert.strictEqual(e.message, 'Cannot roll more than max rolls in a game');
+                    return;
+                }
+            }
+            assert.fail('Should have thrown error for too many rolls');
+        });
+    });
+
     function rollMany(n, pins) {
         for (let i = 0; i < n; i++) {
             game.roll(pins);
