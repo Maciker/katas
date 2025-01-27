@@ -13,18 +13,24 @@ class Game {
         let frameIndex = 0;
         
         for (let frame = 0; frame < 10; frame++) {
-            if (this.isStrike(frameIndex)) {
-                score += 10 + this.strikeBonus(frameIndex);
-                frameIndex++;
-            } else if (this.isSpare(frameIndex)) {
-                score += 10 + this.spareBonus(frameIndex);
-                frameIndex += 2;
-            } else {
-                score += this.sumOfBallsInFrame(frameIndex);
-                frameIndex += 2;
-            }
+            score += this.scoreFrame(frameIndex);
+            frameIndex += this.nextFrameIndex(frameIndex);
         }
         return score;
+    }
+
+    scoreFrame(frameIndex) {
+        if (this.isStrike(frameIndex)) {
+            return 10 + this.strikeBonus(frameIndex);
+        }
+        if (this.isSpare(frameIndex)) {
+            return 10 + this.spareBonus(frameIndex);
+        }
+        return this.sumOfBallsInFrame(frameIndex);
+    }
+
+    nextFrameIndex(frameIndex) {
+        return this.isStrike(frameIndex) ? 1 : 2;
     }
 
     isStrike(frameIndex) {
