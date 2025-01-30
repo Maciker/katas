@@ -1,6 +1,8 @@
-/** @type {import('jest').Config} */
-const config = {
-    verbose: true,
+export default {
+  verbose: true,
+  transform: {
+    "^.+\\.jsx?$": "babel-jest"
+  },
+  testEnvironment: 'node',
+  moduleFileExtensions: ['js', 'json', 'jsx', 'node']
 };
-
-module.exports = config;

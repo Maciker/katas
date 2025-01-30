@@ -2,11 +2,11 @@
   "name": "katas",
   "version": "1.0.0",
   "description": "Katas Boilerplate",
+  "type": "module",
   "scripts": {
     "lint": "eslint src/**/*.js",
-    "test": "mocha test/**/*.js",
-    "test:watch": "mocha test/**/*.js --watch",
-    "test:mocha": "mocha test/**/*.js"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "directories": {
     "src": "src",
