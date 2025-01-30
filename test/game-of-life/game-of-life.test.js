@@ -27,5 +27,17 @@ describe('Game of Life', () => {
       
       expect(game.isCellAlive(1, 1)).toBe(false);
     });
+
+    test('live cell with 2 live neighbors survives', () => {
+      const game = new Game(3, 3);
+      // Set up a line of 3 cells with middle cell having 2 neighbors
+      game.setCell(0, 1, true);
+      game.setCell(1, 1, true);
+      game.setCell(2, 1, true);
+      
+      game.nextGeneration();
+      
+      expect(game.isCellAlive(1, 1)).toBe(true);
+    });
   });
 });

@@ -40,10 +40,8 @@ export class Game {
         const neighbors = this.countLiveNeighbors(x, y);
         const isAlive = this.grid[y][x];
         
-        if (isAlive && neighbors < 2) {
-          newGrid[y][x] = false; // Dies from underpopulation
-        } else {
-          newGrid[y][x] = isAlive; // Keep current state for now
+        if (isAlive) {
+          newGrid[y][x] = neighbors >= 2 && neighbors <= 3;
         }
       }
     }
