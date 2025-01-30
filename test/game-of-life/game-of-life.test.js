@@ -53,5 +53,17 @@ describe('Game of Life', () => {
       
       expect(game.isCellAlive(1, 1)).toBe(false);
     });
+
+    test('dead cell with exactly 3 neighbors becomes alive', () => {
+      const game = new Game(3, 3);
+      // Set up 3 cells around a dead center
+      game.setCell(0, 0, true); // Top-left
+      game.setCell(1, 0, true); // Top
+      game.setCell(2, 0, true); // Top-right
+      
+      game.nextGeneration();
+      
+      expect(game.isCellAlive(1, 1)).toBe(true); // Center cell should become alive
+    });
   });
 });

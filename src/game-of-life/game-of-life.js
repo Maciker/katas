@@ -42,6 +42,8 @@ export class Game {
         
         if (isAlive) {
           newGrid[y][x] = neighbors >= 2 && neighbors <= 3;
+        } else {
+          newGrid[y][x] = neighbors === 3;
         }
       }
     }
