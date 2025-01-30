@@ -9,4 +9,8 @@ export class Game {
   isCellAlive(x, y) {
     return this.grid[y][x];
   }
+
+  setCell(x, y, alive) {
+    this.grid[y][x] = alive;
+  }
 }
