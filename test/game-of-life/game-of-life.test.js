@@ -39,5 +39,19 @@ describe('Game of Life', () => {
       
       expect(game.isCellAlive(1, 1)).toBe(true);
     });
+
+    test('live cell with more than 3 neighbors dies from overpopulation', () => {
+      const game = new Game(3, 3);
+      // Set up a cell with 4 neighbors
+      game.setCell(1, 1, true); // Center cell
+      game.setCell(0, 0, true); // Top-left
+      game.setCell(0, 1, true); // Left
+      game.setCell(1, 0, true); // Top
+      game.setCell(2, 0, true); // Top-right
+      
+      game.nextGeneration();
+      
+      expect(game.isCellAlive(1, 1)).toBe(false);
+    });
   });
 });
