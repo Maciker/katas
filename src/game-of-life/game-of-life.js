@@ -36,23 +36,35 @@ export class Game {
     }, 0);
   }
 
-  nextGeneration() {
-    const newGrid = Array(this.height).fill(null)
+  createEmptyGrid() {
+    return Array(this.height).fill(null)
       .map(() => Array(this.width).fill(false));
-    
+  }
+
+  willCellLive(isAlive, neighborCount) {
+    if (isAlive) {
+      return neighborCount === 2 || neighborCount === 3; // Survival rules
+    }
+    return neighborCount === 3; // Birth rule
+  }
+
+  forEachCell(callback) {
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
-        const neighbors = this.countLiveNeighbors(x, y);
-        const isAlive = this.grid[y][x];
-        
-        if (isAlive) {
-          newGrid[y][x] = neighbors >= 2 && neighbors <= 3;
-        } else {
-          newGrid[y][x] = neighbors === 3;
-        }
+        callback(x, y);
       }
     }
+  }
+
+  nextGeneration() {
+    const nextGrid = this.createEmptyGrid();
     
-    this.grid = newGrid;
+    this.forEachCell((x, y) => {
+      const currentState = this.grid[y][x];
+      const neighborCount = this.countLiveNeighbors(x, y);
+      nextGrid[y][x] = this.willCellLive(currentState, neighborCount);
+    });
+    
+    this.grid = nextGrid;
   }
 }
