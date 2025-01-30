@@ -49,11 +49,11 @@ export class Game {
   }
 
   forEachCell(callback) {
-    for (let y = 0; y < this.height; y++) {
-      for (let x = 0; x < this.width; x++) {
+    Array.from({ length: this.height }).forEach((_, y) => {
+      Array.from({ length: this.width }).forEach((_, x) => {
         callback(x, y);
-      }
-    }
+      });
+    });
   }
 
   nextGeneration() {
