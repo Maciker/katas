@@ -14,21 +14,26 @@ export class Game {
     this.grid[y][x] = alive;
   }
 
-  countLiveNeighbors(x, y) {
-    let count = 0;
-    for (let dy = -1; dy <= 1; dy++) {
-      for (let dx = -1; dx <= 1; dx++) {
-        if (dx === 0 && dy === 0) continue;
-        const newX = x + dx;
-        const newY = y + dy;
-        if (newX >= 0 && newX < this.width && 
-            newY >= 0 && newY < this.height &&
-            this.grid[newY][newX]) {
-          count++;
-        }
+  isValidPosition(x, y) {
+    return x >= 0 && x < this.width && y >= 0 && y < this.height;
+  }
+
+  countLiveNeighbors(centerX, centerY) {
+    const neighborOffsets = [
+      [-1, -1], [0, -1], [1, -1],
+      [-1,  0],          [1,  0],
+      [-1,  1], [0,  1], [1,  1]
+    ];
+
+    return neighborOffsets.reduce((liveCount, [dx, dy]) => {
+      const neighborX = centerX + dx;
+      const neighborY = centerY + dy;
+      
+      if (this.isValidPosition(neighborX, neighborY) && this.grid[neighborY][neighborX]) {
+        return liveCount + 1;
       }
-    }
-    return count;
+      return liveCount;
+    }, 0);
   }
 
   nextGeneration() {
