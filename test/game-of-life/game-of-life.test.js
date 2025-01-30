@@ -66,4 +66,30 @@ describe('Game of Life', () => {
       expect(game.isCellAlive(1, 1)).toBe(true); // Center cell should become alive
     });
   });
+
+  describe('Game Patterns', () => {
+    test('blinker pattern should oscillate between horizontal and vertical', () => {
+      const game = new Game(5, 5); // Larger grid to avoid edges
+      // Set up horizontal blinker in the middle
+      game.setCell(1, 2, true);
+      game.setCell(2, 2, true);
+      game.setCell(3, 2, true);
+      
+      // After one generation, should be vertical
+      game.nextGeneration();
+      expect(game.isCellAlive(2, 1)).toBe(true);
+      expect(game.isCellAlive(2, 2)).toBe(true);
+      expect(game.isCellAlive(2, 3)).toBe(true);
+      expect(game.isCellAlive(1, 2)).toBe(false);
+      expect(game.isCellAlive(3, 2)).toBe(false);
+      
+      // After second generation, should be horizontal again
+      game.nextGeneration();
+      expect(game.isCellAlive(1, 2)).toBe(true);
+      expect(game.isCellAlive(2, 2)).toBe(true);
+      expect(game.isCellAlive(3, 2)).toBe(true);
+      expect(game.isCellAlive(2, 1)).toBe(false);
+      expect(game.isCellAlive(2, 3)).toBe(false);
+    });
+  });
 });
