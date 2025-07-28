@@ -1,3 +1,3 @@
 # Katas
 
-Each branch contains a kata. 
+Each folder contain katas in each language.
