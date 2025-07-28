@@ -7,7 +7,25 @@ class Game {
         this.rolls.push(pins);
     }
     score(): number {
-        return this.rolls.reduce((accumulated, current) => accumulated + current, 0);
+        let rollIndex = 0;
+
+        return this.rolls.reduce((totalScore) => {
+
+            if (rollIndex >= this.rolls.length) {
+                return totalScore;
+            }
+            if (this.rolls[rollIndex] === 10) { // Strike
+                totalScore += 10 + (this.rolls[rollIndex + 1] || 0) + (this.rolls[rollIndex + 2] || 0);
+                rollIndex += 1;
+            } else if (this.rolls[rollIndex] + (this.rolls[rollIndex + 1] || 0) === 10) { // Spare
+                totalScore += 10 + (this.rolls[rollIndex + 2] || 0);
+                rollIndex += 2;
+            } else { // Open frame
+                totalScore += this.rolls[rollIndex];
+                rollIndex += 1;
+            }
+            return totalScore
+        }, 0);
     }
 }
 // Example usage:
