@@ -9,4 +9,11 @@ describe('Bowling Game Tests', ()=>{
     it('should initialize a new game', () => {
         expect(game).toBeDefined();
     });
+
+    it('should score 0 in the worst game', () => {
+        for (let i = 0; i < 20; i++) {
+            game.roll(0);
+        }
+        expect(game.score()).toBe(0);
+    });
 })
