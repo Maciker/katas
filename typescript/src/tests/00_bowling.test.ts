@@ -11,16 +11,18 @@ describe('Bowling Game Tests', ()=>{
     });
 
     it('should score 0 in the worst game', () => {
-        for (let i = 0; i < 20; i++) {
-            game.roll(0);
-        }
+        rollMany(0)
         expect(game.score()).toBe(0);
     });
 
     it('should score 20 in a full 1s frame', () => {
-        for (let i = 0; i < 20; i++) {
-            game.roll(1);
-        }
+        rollMany(1);
         expect(game.score()).toBe(20);
     });
+
+    function rollMany(value: number) {
+        for (let i = 0; i < 20; i++) {
+            game.roll(value);
+        }
+    }
 })
