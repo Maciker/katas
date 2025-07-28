@@ -7,10 +7,9 @@ class Game {
         this.rolls.push(pins);
     }
     score(): number {
-        return 0;
+        return this.rolls.reduce((accumulated, current) => accumulated + current, 0);
     }
 }
-
 // Example usage:
 const game = new Game();
 game.roll(5);
