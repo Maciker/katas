@@ -20,6 +20,14 @@ describe('Bowling Game Tests', ()=>{
         expect(game.score()).toBe(20);
     });
 
+    it('should score 20 with a spare roll and two 5s', () => {
+        game.roll(5);
+        game.roll(5); // Spare
+        game.roll(5); // Bonus roll
+        rollMany(0);
+        expect(game.score()).toBe(20);
+    });
+
     function rollMany(value: number) {
         for (let i = 0; i < 20; i++) {
             game.roll(value);
