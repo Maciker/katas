@@ -1,9 +1,10 @@
 class Game {
+    private rolls: number[] = [];
     constructor() {
         // Initialize properties if needed
     }
     roll(pins: number): void {
-
+        this.rolls.push(pins);
     }
     score(): number {
         return 0;
