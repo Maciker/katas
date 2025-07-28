@@ -28,8 +28,13 @@ describe('Bowling Game Tests', ()=>{
         expect(game.score()).toBe(20);
     });
 
-    function rollMany(value: number) {
-        for (let i = 0; i < 20; i++) {
+    it('should score 300 in a perfect game', () => {
+        rollMany(10, 12);
+        expect(game.score()).toBe(300);
+    });
+
+    function rollMany(value: number, times: number = 20) {
+        for (let i = 0; i < times; i++) {
             game.roll(value);
         }
     }
