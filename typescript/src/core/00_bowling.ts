@@ -6,7 +6,7 @@ class Game {
 
     }
     score(): number {
-        return 1;
+        return 0;
     }
 }
 
