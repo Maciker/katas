@@ -7,16 +7,18 @@ describe("Bowling Game", () => {
     });
 
     it('should score 0 in a full fail game', () => {
-        for (let i = 0; i < 20; i++) {
-            bowlingGame.roll(0);
-        }
+        manyRolls();
         expect(bowlingGame.calculateTotalScore()).toBe(0);
     })
 
     it('should score 20 in a full 1s game', () => {
-        for (let i = 0; i < 20; i++) {
-            bowlingGame.roll(1);
-        }
+        manyRolls(1)
         expect(bowlingGame.calculateTotalScore()).toBe(20);
     })
+
+    function manyRolls(pinsHit: number = 0, times: number = 20) {
+        for (let i = 0; i < times; i++) {
+            bowlingGame.roll(pinsHit);
+        }
+    }
 });
