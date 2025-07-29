@@ -7,7 +7,10 @@ describe("Bowling Game", () => {
         game = new BowlingGame();
     });
 
-    it('should return 0 for no rolls', () => {
+    it('should score 0 in a full fail game', () => {
+        for (let i = 0; i < 20; i++) {
+            game.roll(0);
+        }
         expect(game.totalScore()).toBe(0);
     })
 });
