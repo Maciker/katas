@@ -4,8 +4,8 @@ class BowlingGame {
         this.rolls.push(pins);
     }
 
-    totalScore(): number {
-        return 0
+    calculateTotalScore(): number {
+        return this.rolls.reduce((total, pins) => total + pins, 0);
     }
 }
 

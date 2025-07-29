@@ -10,13 +10,13 @@ describe("Bowling Game", () => {
         for (let i = 0; i < 20; i++) {
             bowlingGame.roll(0);
         }
-        expect(bowlingGame.totalScore()).toBe(0);
+        expect(bowlingGame.calculateTotalScore()).toBe(0);
     })
 
     it('should score 20 in a full 1s game', () => {
         for (let i = 0; i < 20; i++) {
             bowlingGame.roll(1);
         }
-        expect(bowlingGame.totalScore()).toBe(20);
+        expect(bowlingGame.calculateTotalScore()).toBe(20);
     })
 });
