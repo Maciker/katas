@@ -1,10 +1,11 @@
 class BowlingGame {
+    private rolls: number[] = [];
     roll(pins: number): void {
-        let score = 0;
+        this.rolls.push(pins);
     }
 
     totalScore(): number {
-        return 1
+        return 0
     }
 }
 
