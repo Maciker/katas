@@ -7,7 +7,7 @@
 
 import {Cell} from "../core/00_theGameOfLife";
 
-import {CellStatus, aliveCellStatus, deadCellStatus} from "../core/00_CellStatusType";
+import {aliveCellStatus, deadCellStatus} from "../core/00_CellStatusType";
 let aliveCell : Cell;
 let deadCell : Cell;
 

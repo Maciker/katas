@@ -5,8 +5,12 @@ export class Cell {
 
     }
 
+    isAlive(): boolean {
+        return this.CellStatus.Alive;
+    }
+
     cellLifeStatus(aliveNeighbors: number): CellStatus {
-        if (this.CellStatus.Alive) {
+        if (this.isAlive) {
             // Live cell logic
             if (aliveNeighbors < 2 || aliveNeighbors > 3) {
                 return deadCellStatus // Under-population or Over-population
