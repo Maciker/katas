@@ -1,7 +1,4 @@
-export type CellStatus = {
-    Alive: boolean;
-    Dead: boolean;
-};
+import {CellStatus, aliveCellStatus, deadCellStatus} from "./00_CellStatusType";
 
 export class Cell {
     constructor(readonly CellStatus: CellStatus) {
@@ -9,16 +6,6 @@ export class Cell {
     }
 
     cellLifeStatus(aliveNeighbors: number): CellStatus {
-        const aliveCellStatus: CellStatus = {
-            Alive: true,
-            Dead: false
-        };
-
-        const deadCellStatus: CellStatus = {
-            Alive: false,
-            Dead: true
-        };
-
         if (this.CellStatus.Alive) {
             // Live cell logic
             if (aliveNeighbors < 2 || aliveNeighbors > 3) {
