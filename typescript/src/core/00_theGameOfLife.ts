@@ -12,16 +12,24 @@ export class Cell {
     cellLifeStatus(aliveNeighbors: number): Cell {
         if (this.isAlive) {
             // Live cell logic
-            if (aliveNeighbors < 2 || aliveNeighbors > 3) {
-                return new Cell(deadCellStatus) // Under-population or Over-population
-            } else {
-                return new Cell(aliveCellStatus) // Survival
-            }
+            return this.aliveCellLifeCycle(aliveNeighbors);
         }
+        return this.deadCellLifeCycle(aliveNeighbors);
+    }
+
+    private deadCellLifeCycle(aliveNeighbors: number) {
         if (aliveNeighbors === 3) {
             return new Cell(aliveCellStatus) // Reproduction
         }
 
         return this;
+    }
+
+    private aliveCellLifeCycle(aliveNeighbors: number) {
+        if (aliveNeighbors < 2 || aliveNeighbors > 3) {
+            return new Cell(deadCellStatus) // Under-population or Over-population
+        } else {
+            return new Cell(aliveCellStatus) // Survival
+        }
     }
 }
