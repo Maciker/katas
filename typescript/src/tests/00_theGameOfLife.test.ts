@@ -2,7 +2,8 @@
 1	Under‑population – a live cell with fewer than two live neighbors dies.
 2	Over‑population – a live cell with more than three live neighbors dies.
 3	Survival – a live cell with two or three live neighbors lives on to the next generation.
-4	Reproduction – a dead cell with exactly three live neighbors becomes a live cell.*/
+4	Reproduction – a dead cell with exactly three live neighbors becomes a live cell.
+*/
 
 import {Cell, CellStatus} from "../core/00_theGameOfLife";
 let aliveCell : Cell;
@@ -37,6 +38,10 @@ describe('The Game of Life', () => {
         expect(nextStatus).toStrictEqual(AliveCellStatus)
 
         nextStatus = aliveCell.cellLifeStatus(3);
+        expect(nextStatus).toStrictEqual(AliveCellStatus)
+    })
+    it('Reproduction – a dead cell with exactly three live neighbors becomes a live cell.', () => {
+        let nextStatus = deadCell.cellLifeStatus(3);
         expect(nextStatus).toStrictEqual(AliveCellStatus)
     })
 })
