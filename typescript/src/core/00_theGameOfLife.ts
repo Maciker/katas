@@ -9,8 +9,8 @@ export class Cell {
         return this.CellStatus.Alive;
     }
 
-    cellLifeStatus(aliveNeighbors: number): Cell {
-        if (this.isAlive) {
+    cellLifeCycle(aliveNeighbors: number): Cell {
+        if (this.isAlive()) {
             // Live cell logic
             return this.aliveCellLifeCycle(aliveNeighbors);
         }
