@@ -9,19 +9,19 @@ export class Cell {
         return this.CellStatus.Alive;
     }
 
-    cellLifeStatus(aliveNeighbors: number): CellStatus {
+    cellLifeStatus(aliveNeighbors: number): Cell {
         if (this.isAlive) {
             // Live cell logic
             if (aliveNeighbors < 2 || aliveNeighbors > 3) {
-                return deadCellStatus // Under-population or Over-population
+                return new Cell(deadCellStatus) // Under-population or Over-population
             } else {
-                return aliveCellStatus // Survival
+                return new Cell(aliveCellStatus) // Survival
             }
         }
         if (aliveNeighbors === 3) {
-            return aliveCellStatus // Reproduction
+            return new Cell(aliveCellStatus) // Reproduction
         }
 
-        return this.CellStatus;
+        return this;
     }
 }
