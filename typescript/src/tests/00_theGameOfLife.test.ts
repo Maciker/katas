@@ -5,16 +5,27 @@
 4	Reproduction – a dead cell with exactly three live neighbors becomes a live cell.*/
 
 import {Cell, CellStatus} from "../core/00_theGameOfLife";
+let aliveCell : Cell;
+let deadCell : Cell;
 
 const DeadCellStatus: CellStatus = {
     Alive: false,
     Dead: true
 };
 
+const AliveCellStatus: CellStatus = {
+    Alive: true,
+    Dead: false
+};
+
+beforeEach(() => {
+    aliveCell = new Cell(AliveCellStatus);
+    deadCell = new Cell(DeadCellStatus);
+})
+
 describe('The Game of Life', () => {
     it('Under‑population – a live cell with fewer than two live neighbors dies.', () => {
-        const cell = new Cell({Alive: true, Dead: false});
-        let nextStatus = cell.cellLifeStatus(1);
+        let nextStatus = aliveCell.cellLifeStatus(1);
         expect(nextStatus).toStrictEqual(DeadCellStatus)
     })
 })
