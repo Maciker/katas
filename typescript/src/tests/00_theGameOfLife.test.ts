@@ -28,4 +28,15 @@ describe('The Game of Life', () => {
         let nextStatus = aliveCell.cellLifeStatus(1);
         expect(nextStatus).toStrictEqual(DeadCellStatus)
     })
+    it('Over‑population – a live cell with more than three live neighbors dies.', () => {
+        let nextStatus = aliveCell.cellLifeStatus(4);
+        expect(nextStatus).toStrictEqual(DeadCellStatus)
+    })
+    it('Survival – a live cell with two or three live neighbors lives on to the next generation.',() => {
+        let nextStatus = aliveCell.cellLifeStatus(2);
+        expect(nextStatus).toStrictEqual(AliveCellStatus)
+
+        nextStatus = aliveCell.cellLifeStatus(3);
+        expect(nextStatus).toStrictEqual(AliveCellStatus)
+    })
 })

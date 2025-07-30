@@ -9,25 +9,28 @@ export class Cell {
     }
 
     cellLifeStatus(aliveNeighbors: number): CellStatus {
-        const cellStatus: CellStatus = {
+        const aliveCellStatus: CellStatus = {
+            Alive: true,
+            Dead: false
+        };
+
+        const deadCellStatus: CellStatus = {
             Alive: false,
             Dead: true
         };
 
-        if (this.CellStatus) {
+        if (this.CellStatus.Alive) {
             // Live cell logic
             if (aliveNeighbors < 2 || aliveNeighbors > 3) {
-                cellStatus.Alive = false; // Under-population or Over-population
+                return deadCellStatus // Under-population or Over-population
             } else {
-                cellStatus.Alive = true; // Survival
-            }
-        } else {
-            // Dead cell logic
-            if (aliveNeighbors === 3) {
-                cellStatus.Alive = true; // Reproduction
+                return aliveCellStatus // Survival
             }
         }
+        if (aliveNeighbors === 3) {
+            return aliveCellStatus // Reproduction
+        }
 
-        return cellStatus;
+        return this.CellStatus;
     }
 }
