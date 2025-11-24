@@ -1,14 +1,14 @@
 export type CellStatus = {
-    Alive: boolean;
-    Dead: boolean;
+  Alive: boolean;
+  Dead: boolean;
 };
 
 export const aliveCellStatus: CellStatus = {
-    Alive: true,
-    Dead: false
+  Alive: true,
+  Dead: false,
 };
 
 export const deadCellStatus: CellStatus = {
-    Alive: false,
-    Dead: true
+  Alive: false,
+  Dead: true,
 };
